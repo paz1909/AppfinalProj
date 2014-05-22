@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>שכן טוב</title>
+	<link rel="stylesheet" type="text/css"
+		href="jquery.mobile-1.4.2.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="themes/GoodNeighborTheme.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="themes/jquery.mobile.icons.min.css">
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script
+		src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js">
+		</script>
+	<script type="text/javascript" src="js/functions.js">
+	</script>
+
+
+</head>
+
+<body dir=rtl>
+	<div data-role="page" id="firstPage">
+		<div data-role="header">
+			<label align="center"> ברוכים הבאים לשכן טוב </label>
+		</div>
+
+		<div data-role="content" align = "center">
+			<p>
+			הקדמה
+			</p>
+			<img src="logoGoodNeighbor.png" align="middle">
+			<p>
+			<a href="#mainPage" data-role="button" data-inline="true">כניסה לאפליקציה</a>
+			</p>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<p align="left">
+				Good Neighbor&copy;
+			</p>
+		</div>
+	</div>
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" id="mainPage">
+		<div data-role="header">
+			<label align = "center">ברוכים הבאים לשכן טוב</label>
+		</div>
+		<div data-role="content" align = "center">
+			<p>כניסת משתמשים:</p>
+			<form name="signin" onsubmit="return signIn()" accept-charset="UTF-8" data-ajax = "false">
+			<label>שם משתמש</label>
+			<input type="text" name="username" required="required"><br> 
+			<label>סיסמא</label>
+			<input type="password" name="password" required="required"> 
+			<input type="submit" data-inline="true" value="היכנס"> <br> 
+			<a href="#unRegisteredUser" data-rel="dialog" data-transition="slidedown" data-role="button" data-inline="true">מתנדב חדש</a>
+			</form>
+			<img src="logoGoodNeighbor.png" align="middle">
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<p align="left">
+				Good Neighbor&copy;
+				<a href="#unApproved" data-rel="dialog" data-transition="slidedown">unApproved</a> 
+				<a  onclick="test()">test</a>
+				<a href="#manager">manager</a>
+				<a href="#chooseMaps">maps</a>
+			</p>
+		</div>
+	</div>
+	<!-- ////////////////////////////////////////////////////// -->
+	
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" data-close-btn="right" id="unApproved">
+		<div data-role="header" data-iconpos="right">
+			<label align="center">שכן טוב</label>
+		</div>
+		<div data-role="main" class="ui-content">
+			<p><label>אינך רשאי להיכנס למערכת. אנא צור קשר עם האחראים לקבלת אישור.</label></p>
+			<a href="#mainPage" data-role="button" data-inline="true">חזרה לדף הבית</a> 
+		</div>
+		<div data-role="footer" data-position="fixed">
+		<p align="left">
+				Good Neighbor&copy; 
+		</p>
+		</div>
+	</div>
+
+	<!-- ////////////////////////////////////////////////////// -->
+
+	<div data-role="page"  id="unRegisteredUser" data-close-btn="right" >
+		<div data-role="header">
+			<label align = "center">ברוכים הבאים לשכן טוב</label>
+		</div>
+		<!-- /header -->
+		<div data-role="content" align = "center">
+			<p><label>:כניסת מתנדבים חדשים</label></p>
+			
+			<form name="signup" onsubmit="return signUp()" data-ajax = "false">
+				<label for="firstname">שם פרטי</label> 
+				<input type="text" name="firstname" id="firstname" required="required"> 
+				<label for="lastname">שם משפחה</label> 
+					<input type="text" name="lastname" id="lastname" required="required"> 
+					<label for="username">שם משתמש</label> 
+					<input type="text" name="username" id="username" required="required"> 
+					<label for="password">סיסמא</label> 
+					<input type="password" name="password" id="password" required="required"> 
+					<label for="id">ת.ז</label> 
+					<input type="text" name="id" id="id" required="required">
+				<label for="phonenumber">טלפון סלולרי</label> 
+				<input type="tel" name="phonenumber" id="phonenumber" required="required"> 
+				<label for="email">email:</label>
+				<input type="email" name="email" id="email" required="required"> 
+					<input type="submit" data-inline="true" value="הירשם">
+			</form>
+			
+		</div>
+
+		<!-- /content -->
+		<div data-role="footer" data-position="fixed">
+		<p align= "left">
+		<label>
+			Good Neighbor&copy;
+		</label>
+			</p>
+		</div>
+	</div>
+
+	
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" data-dialog="true" data-close-btn="right" id="afterSignUp">
+		<div data-role="header" data-iconpos="right">
+			<label align="center">שכן טוב</label>
+		</div>
+		<div data-role="main" class="ui-content" align = "center">
+			<p><label>תודה שנרשמת לשכן טוב. הנך ממתין לאישור המנהלים ולאחר מכן תוכל להיכנס לאפליקציה.</label></p>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		<p align="left">
+				Good Neighbor&copy; 
+		</p>
+		</div>
+	</div>
+
+	
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" id="volunteerMenu">
+		<div data-role="header">
+			<label align ="center">ברוכים הבאים - אנא בחר אחת מהאופציות הבאות</label>
+		</div>
+		<script>
+				$("#isComing").on("click",function() {
+							isComing();
+					});
+		</script>
+		<div data-role="main" class="ui-content" align = "center">
+			<p>
+				<a data-role="button" data-rel = "dialog" data-inline="true" href="#rsvp">אישור הגעה</a>
+			</p>
+			<p>
+				<a data-role="button" id="isComing" data-inline="true">דף מפות</a><!----לבדוק האם שמור ולפי זה לשלוח אותו לבחירת מפה או לפרטי מפה!--->
+			</p>
+		</div>
+
+		<div data-role="footer" data-position = "fixed">
+			<p align="left">
+				<a href="#mainPage">יציאה</a> 
+				Good Neighbor&copy; 
+			</p>
+		</div>
+	</div>
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" data-close-btn="right" id="rsvp">
+		<div data-role="header" data-iconpos="right">
+			<label align="center">שכן טוב</label>
+		</div>
+		<script>
+				$("#coming").on("click",function() {
+							coming();
+					});
+		</script>
+		<div data-role="main" class="ui-content">
+			<label>האם אתה מגיע היום לחלוקה?</label>
+			<a href="#whereToGo" id="coming" data-rel = "dialog" data-role = "button" data-inline = "true">כן</a>
+			<a href="#notComing" data-rel = "dialog" data-role = "button" data-inline = "true">לא</a>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		<p align="left">
+				Good Neighbor&copy; 
+		</p>
+		</div>
+	</div>
+	
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" data-close-btn="right" id="whereToGo">
+		<div data-role="header" data-iconpos="right">
+			<label align="center">שכן טוב</label>
+		</div>
+		<script>
+				$("#isComing").on("click",function() {
+							isComing();
+					});
+		</script>
+		<div data-role="main" class="ui-content">
+			<label>לאן ברצונך לעבור?</label>
+			<a id="isComing" data-role = "button" data-inline = "true">לדף המפות</a>
+			<a href="#mainPage" data-role = "button" data-inline = "true">למסך הבית</a>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		<p align="left">
+				Good Neighbor&copy; 
+		</p>
+		</div>
+	</div>
+	
+	<!-- ////////////////////////////////////////////////////// -->
+	
+	<div data-role="page" data-close-btn="right" id="notComing">
+		<div data-role="header" data-iconpos="right">
+			<label align="center">שכן טוב</label>
+		</div>
+		<div data-role="main" class="ui-content">
+			<label>תודה, נתראה שבוע הבא!</label>
+			<a href="#mainPage" data-role = "button" data-inline = "true">למסך הבית</a>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		<p align="left">
+				Good Neighbor&copy; 
+		</p>
+		</div>
+	</div>
+	
+	<!-- ////////////////////////////////////////////////////// -->
+
+	<div data-role="page" id="chooseMaps">
+		<div data-role="header">
+			<label align = "center">ברוכים הבאים לשכן טוב</label>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
+			<p><label>אנא בחר מפה</label></p>
+
+		</div>
+		<div data-role="main" class="ui-content" align="center">
+			<form name = "chooseMapForm">
+			<fieldset data-role="controlgroup" data-type="vertical"> 
+					<div data-role="collapsible-set" id="chooseMapColl">
+					<script>
+						$(document).on('pageinit', '#chooseMaps', function () 
+						 {
+                            var result = moveTojava.chooseMapInit();
+							var json = JSON.parse(result);
+							var collapsibleSet=$("#chooseMapColl");
+							var innerCollapsibleSet;
+							var innerCollapsible;
+                            var firstName
+                            var lastName
+                            var phoneNumber
+                            var city
+                            var street
+                            var streetNumber
+                            var houseNumber
+                            var comments
+                            if(json.mapsLength == 0)
+                            {
+
+                            }
+                             else if(json.mapsLength == 1)
+                            {
+                                
+								var mapName = json.maps.mapName;
+								var radio = $('<input type="radio" name="map" value='+mapName+' id="rad0">');
+								var collapsible= $('<div data-role="collapsible" data-iconpos="right" id="col0"></div>');
+								collapsible.append('<h4>'+mapName+'</h4>');
+								if(json.maps.familiesLength == 1)
+								{
+									firstName = json.maps.families.firstName;
+									lastName = json.maps.families.lastName;
+									phoneNumber  = json.maps.families.phoneNumber;
+									city  = json.maps.families.city;
+									street  = json.maps.families.street;
+									streetNumber = json.maps.families.streetNumber;
+									houseNumber  = json.maps.families.houseNumber;
+									comments = json.maps.families.comments;
+
+									innerCollapsibleSet=$('<div data-role="collapsible-set">');
+									innerCollapsible=$('<div data-role="collapsible" data-iconpos="right"></div>');
+									innerCollapsible.append('<h3>משפחה מספר '+1+'</h3>');
+									innerCollapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+									innerCollapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+									innerCollapsible.append('<h4>טלפון: '+phoneNumber+'</h4>');
+									innerCollapsible.append('<h4>עיר: '+city+'</h4>');
+									innerCollapsible.append('<h4>רחוב: '+street+'</h4>');
+									innerCollapsible.append('<h4>מספר בית: '+streetNumber+'</h4>');
+									innerCollapsible.append('<h4>מספר דירה: '+houseNumber+'</h4>');
+									innerCollapsible.append('<h4>הערות: '+comments+'</h4>');
+									innerCollapsibleSet.append(innerCollapsible);
+									collapsible.append(innerCollapsibleSet);
+								}
+								else
+								{
+
+									familyLength = json.maps.families.length;
+
+									for(var k=0; k<familyLength; k++) {
+										firstName = json.maps.families[k].firstName;
+										lastName = json.maps.families[k].lastName;
+										phoneNumber  = json.maps.families[k].phoneNumber;
+										city  = json.maps.families[k].city;
+										street  = json.maps.families[k].street;
+										streetNumber = json.maps.families[k].streetNumber;
+										houseNumber  = json.maps.families[k].houseNumber;
+										comments = json.maps.families[k].comments;
+										innerCollapsibleSet=$('<div data-role="collapsible-set">');
+										innerCollapsible=$('<div data-role="collapsible" data-iconpos="right"></div>');
+										innerCollapsible.append('<h3>משפחה מספר '+(k+1)+'</h3>');
+										innerCollapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+										innerCollapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+										innerCollapsible.append('<h4>טלפון: '+phoneNumber+'</h4>');
+										innerCollapsible.append('<h4>עיר: '+city+'</h4>');
+										innerCollapsible.append('<h4>רחוב: '+street+'</h4>');
+										innerCollapsible.append('<h4>מספר בית: '+streetNumber+'</h4>');
+										innerCollapsible.append('<h4>מספר דירה: '+houseNumber+'</h4>');
+										innerCollapsible.append('<h4>הערות: '+comments+'</h4>');
+										innerCollapsibleSet.append(innerCollapsible);
+										collapsible.append(innerCollapsibleSet);
+
+									}
+								}
+								collapsibleSet.append(radio);
+								collapsibleSet.append(collapsible);
+							
+                            }
+                             else 
+							 {
+                                var length = json.maps.length;
+                                
+                                    for (var i = 0; i < length; i++)
+                                    {
+                                        var mapName = json.maps[i].mapName;
+                                        var radio = $('<input type="radio" name="map" value=' + mapName + i + ' id="rad' + i + '">');
+                                        var collapsible = $('<div data-role="collapsible" data-iconpos="right" id="col' + i + '"></div>');
+                                        collapsible.append('<h4>' + mapName + '</h4>');
+										if (json.maps[i].familiesLength == 1)
+										{
+											firstName = json.maps[i].families.firstName;
+											lastName = json.maps[i].families.lastName;
+											phoneNumber = json.maps[i].families.phoneNumber;
+											city = json.maps[i].families.city;
+											street = json.maps[i].families.street;
+											streetNumber = json.maps[i].families.streetNumber;
+											houseNumber = json.maps[i].families.houseNumber;
+											comments = json.maps[i].families.comments;
+											innerCollapsibleSet = $('<div data-role="collapsible-set">');
+											innerCollapsible = $('<div data-role="collapsible" data-iconpos="right"></div>');
+											innerCollapsible.append('<h3>משפחה מספר '+1+'</h3>');
+											innerCollapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+											innerCollapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+											innerCollapsible.append('<h4>טלפון: '+phoneNumber+'</h4>');
+											innerCollapsible.append('<h4>עיר: '+city+'</h4>');
+											innerCollapsible.append('<h4>רחוב: '+street+'</h4>');
+											innerCollapsible.append('<h4>מספר בית: '+streetNumber+'</h4>');
+											innerCollapsible.append('<h4>מספר דירה: '+houseNumber+'</h4>');
+											innerCollapsible.append('<h4>הערות: '+comments+'</h4>');
+											innerCollapsibleSet.append(innerCollapsible);
+											collapsible.append(innerCollapsibleSet);
+										}
+										else
+										{
+											var familyLength;
+											familyLength = json.maps[i].families.length;
+											for (var k = 0; k < familyLength; k++) 
+											{
+												var firstName = json.maps[i].families[k].firstName;
+												var lastName = json.maps[i].families[k].lastName;
+												var phoneNumber = json.maps[i].families[k].phoneNumber;
+												var city = json.maps[i].families[k].city;
+												var street = json.maps[i].families[k].street;
+												var streetNumber = json.maps[i].families[k].streetNumber;
+												var houseNumber = json.maps[i].families[k].houseNumber;
+												var comments = json.maps[i].families[k].comments;
+												innerCollapsibleSet = $('<div data-role="collapsible-set">');
+												innerCollapsible = $('<div data-role="collapsible" data-iconpos="right"></div>');
+												innerCollapsible.append('<h3>משפחה מספר ' + (k + 1) + '</h3>');
+												innerCollapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+												innerCollapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+												innerCollapsible.append('<h4>טלפון: '+phoneNumber+'</h4>');
+												innerCollapsible.append('<h4>עיר: '+city+'</h4>');
+												innerCollapsible.append('<h4>רחוב: '+street+'</h4>');
+												innerCollapsible.append('<h4>מספר בית: '+streetNumber+'</h4>');
+												innerCollapsible.append('<h4>מספר דירה: '+houseNumber+'</h4>');
+												innerCollapsible.append('<h4>הערות: '+comments+'</h4>');
+												innerCollapsibleSet.append(innerCollapsible);
+												collapsible.append(innerCollapsibleSet);
+											}
+										}
+                                        collapsibleSet.append(radio);
+                                        collapsibleSet.append(collapsible);
+                                    }
+                                }
+                            
+							
+							collapsibleSet.trigger('create');
+							 $("#chooseMap").on("click",function() {
+								chooseMap(length);
+							});
+						 });
+					 </script>
+					</fieldset>
+					<a data-role="button" id="chooseMap" data-inline="true">בחר</a>
+			</form>
+				
+		</div>
+		<!-- /content -->
+		<div data-role="footer" data-position="fixed">
+			<p align="left">
+				<a href="#mainPage">יציאה</a> 
+				Good Neighbor&copy; 
+			</p>
+		</div>
+		<!-- /footer -->
+	</div>
+
+	<!-- ////////////////////////////////////////////////////// -->
+	
+	<div data-role="page" id="mapDits">
+		<div data-role="header">
+			<label align = "center">ברוכים הבאים לשכן טוב</label>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
+			<p></p>
+
+		</div>
+		<div data-role="main" class="ui-content" align="right">
+		<form>
+				<div data-role="collapsible-set" id="mapDitsColl"> 
+					</div>
+					<script>
+						$(document).on('pageinit', '#mapDits', function () 
+						 {
+							//var result = moveTojava.allMapsInit();
+							var result = '{"map":{"mapName":"mapname","families":[{"firstName":"oren","lastName":"lasko"}]}}';
+							var json = JSON.parse(result);	
+							var collapsibleSet=$("#mapDitsColl");
+							var familyLength = json.map.families.length;
+							for(var j =0;j<familyLength;j++)
+							{
+								
+								var firstName = json.map.families[j].firstName;
+								var lastName = json.map.families[j].lastName;
+								var phoneNumber = json.map.families[j].phoneNumber;
+								var city = json.map.families[j].city;
+								var street = json.map.families[j].street;
+								var streetNumber = json.map.families[j].streetNumber;
+								var houseNumber = json.map.families[j].houseNumber;
+								var comments = json.map.families[j].comments;
+								var collapsible= $('<div data-role="collapsible" data-iconpos="right" id="col'+j+'"></div>');
+								collapsible.append('<h3>משפחה מספר '+(j+1)+'</h3>');
+								collapsible.append('<h4>'+firstName+'</h4>');
+								collapsible.append('<h4>'+lastName+'</h4>');
+								collapsible.append('<h4>'+phoneNumber+'</h4>');
+								collapsible.append('<h4>'+city+'</h4>');
+								collapsible.append('<h4>'+street+'</h4>');
+								collapsible.append('<h4>'+streetNumber+'</h4>');
+								collapsible.append('<h4>'+houseNumber+'</h4>');
+								collapsible.append('<h4>'+comments+'</h4>');
+								collapsibleSet.append(collapsible);
+							}
+							collapsibleSet.trigger('create');
+							$("#switchMap").on("click",function() {
+								switchMap();
+							});
+							$("#endOfDelivery").on("click",function() {
+								endOfDelivery();
+							});
+						 });
+					 </script>
+				<a data-role="button" data-inline="true" id="switchMap">החלף מפה</a>
+				<a data-role="button" id = "endOfDelivery" data-rel="dialog" data-transition="slidedown" data-inline="true">סיימתי לחלק</a>
+			</form>
+		</div>
+		<!-- /content -->
+		<div data-role="footer" data-position="fixed">
+			<p align="left">
+				<a href="#mainPage">יציאה</a> 
+				Good Neighbor&copy; 
+			</p>
+		</div>
+		<!-- /footer -->
+	</div>
+
+	<!-- ////////////////////////////////////////////////////// -->
+
+
+	<div data-role="page" data-close-btn="none" id="endOfDelivery">
+		<div data-role="header">
+			<label align="center">שכן טוב</label>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<p>תודה על העזרה (:</p>
+			<a data-role="button" href= "#mainPage" data-inline="true">יציאה לדף הבית</a>
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<label align="left"> 
+				Good Neighbor&copy; 
+			</label>
+		</div>
+	</div>
+	
+	
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" id="manager">
+		<div data-role="header">
+			<label align ="center">ברוכים הבאים - אנא בחר אחת מהאופציות הבאות</label>
+		</div>
+
+		<div data-role="main" class="ui-content" align = "center">
+			<p>
+				<a data-role="button" data-inline="true" href="#approveNewVolunteers">אישור מתנדבים חדשים</a>
+			</p>
+			<p>
+				<a data-role="button" data-inline="true" href="#allVolunteers">צפייה בכל המתנדבים</a>
+			</p>
+			<p>
+				<a data-role="button" data-inline="true" href="#allMaps">צפייה במפות</a>
+			</p>
+			<p>
+				<a data-role="button" data-inline="true" href="#allFamilies"> צפייה במשפחות </a>
+			</p>
+			<p>
+				<a data-role="button" data-inline="true" href="#addNewMaps">הוספת מפות חדשות</a>
+			</p>
+		</div>
+
+		<div data-role="footer" data-position = "fixed">
+			<p align="left">
+				<a href="#mainPage">יציאה</a> 
+				Good Neighbor&copy; 
+			</p>
+		</div>
+	</div>
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" id="approveNewVolunteers">
+		<div data-role="header">
+			<label align ="center">רשימת המתנדבים:</label>
+		</div>
+
+		<div data-role="main" class="ui-content" align="center">
+		
+			<form>
+			<fieldset> 
+				<p>
+				<label for="checkBtn">סמן הכל</label>
+				<input type="checkbox" class="checkall" name="checkBtn" id="checkBtn">
+				<script>	
+						$('#checkBtn').click(function() {			
+							$(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
+						});
+						function clickCheck()
+						{
+							var checked;
+                            checked = document.getElementById("checkBtn").checked;
+                            if(checked == true)
+                            {
+                                $("input[type='checkbox']:first").attr("checked",false).checkboxradio("refresh");
+                            }
+						}
+				</script>
+				</p>
+					<div data-role="collapsible-set" id="approveNewVolunteersColl"> 
+					</div>
+					<script>
+						$(document).on('pageinit', '#approveNewVolunteers', function () 
+						 {
+							var result = moveTojava.approveNewVolunteersInit();
+							var json = JSON.parse(result);
+							var collapsibleSet=$("#approveNewVolunteersColl");
+							var userName;
+							var id;
+							var firstName;
+							var lastName;
+							var phone;
+							var email;
+							if(json.volLength == 0)
+							{
+								//לבטל את הצ'קאול ולכתוב הודעה שאין מתנדבים שמחכים לאישור..
+							}
+							else if(json.volLength == 1)
+							{
+								userName = json.volunteers.userName;
+								id = json.volunteers.id;
+								firstName = json.volunteers.firstName;
+								lastName = json.volunteers.lastName;
+								phone = json.volunteers.phone;
+								email = json.volunteers.email;
+								var check = $('<input type="checkbox" onclick="clickCheck()" name="'+id+'" id="checkB0">');
+								var collapsible= $('<div data-role="collapsible" data-iconpos="right" id="col1"></div>');
+								collapsible.append('<h3>'+userName+'</h3>');
+								collapsible.append('<h4>ת.ז: '+id+'</h4>');
+								collapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+								collapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+								collapsible.append('<h4>טלפון: '+phone+'</h4>');
+								collapsible.append('<h4>אימייל: '+email+'</h4>');
+								collapsibleSet.append(check);
+								collapsibleSet.append(collapsible);
+							}
+							else
+							{
+								var volunteerLength = json.volunteers.length;
+								for(var j =0;j<volunteerLength;j++)
+								{
+									userName = json.volunteers[j].userName;
+									id = json.volunteers[j].id;
+									firstName = json.volunteers[j].firstName;
+									lastName = json.volunteers[j].lastName;
+									phone = json.volunteers[j].phone;
+									email = json.volunteers[j].email;
+									var check = $('<input type="checkbox" onclick="clickCheck()" class="checkall" name="'+id+'" id="checkB'+j+'">');
+									var collapsible= $('<div data-role="collapsible" data-iconpos="right" id="col'+j+'"></div>');
+									collapsible.append('<h3>'+userName+'</h3>');
+									collapsible.append('<h4>ת.ז: '+id+'</h4>');
+									collapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+									collapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+									collapsible.append('<h4>טלפון: '+phone+'</h4>');
+									collapsible.append('<h4>אימייל: '+email+'</h4>');
+									collapsibleSet.append(check);
+									collapsibleSet.append(collapsible);
+								}
+							}
+							collapsibleSet.trigger('create');
+							$("#approveVols").on("click",function() {
+								approveNewVolunteers(volunteerLength);
+							});
+						 });
+						 
+					 </script>
+					</fieldset>
+					
+					<a data-role="button" data-inline="true" id="approveVols">אשר את כל המסומנים</a>
+			</form>
+		</div>
+
+		<div data-role="footer" data-position = "fixed">
+			<p align="left">
+				<a href="#manager">חזרה לדף מנהלים</a>
+				<a href="#mainPage">יציאה</a> 
+				Good Neighbor&copy; 
+			</p>
+		</div>
+	</div>
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" id="allVolunteers">
+		<div data-role="header">
+			<label align ="center">רשימת המתנדבים:</label>
+		</div>
+
+		<div data-role="main" class="ui-content">
+		
+		<form class="ui-filterable">
+     	 	<input id="myFilter" data-type="search" >
+	    </form>
+	    <ul data-role="collapsibleset" id ="allVolunteersColl"data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
+	     			 <script>
+						$(document).on('pageinit', '#allVolunteers', function () 
+						 {
+                             var result = moveTojava.allVolunteersInit();
+                             var json = JSON.parse(result);
+                             var collapsibleSet=$("#allVolunteersColl");
+                             var userName;
+                             var id;
+                             var firstName;
+                             var lastName;
+                             var phone;
+                             var email;
+                             if(json.volLength == 0)
+                             {
+                                 //לבטל את הצ'קאול ולכתוב הודעה שאין מתנדבים שמחכים לאישור..
+                             }
+                             else if(json.volLength == 1)
+                             {
+                                 userName = json.volunteers.userName;
+                                 id = json.volunteers.id;
+                                 firstName = json.volunteers.firstName;
+                                 lastName = json.volunteers.lastName;
+                                 phone = json.volunteers.phone;
+                                 email = json.volunteers.email;
+                                 var collapsible= $('<div data-role="collapsible" data-iconpos="right" id="col1"></div>');
+                                 collapsible.append('<h3>'+userName+'</h3>');
+                                 collapsible.append('<h4>ת.ז: '+id+'</h4>');
+                                 collapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+                                 collapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+                                 collapsible.append('<h4>טלפון: '+phone+'</h4>');
+                                 collapsible.append('<h4>אימייל: '+email+'</h4>');
+                                 collapsibleSet.append(collapsible);
+                             }
+                             else
+                             {
+                                 var volunteerLength = json.volunteers.length;
+                                 for(var j =0;j<volunteerLength;j++)
+                                 {
+                                     userName = json.volunteers[j].userName;
+                                     id = json.volunteers[j].id;
+                                     firstName = json.volunteers[j].firstName;
+                                     lastName = json.volunteers[j].lastName;
+                                     phone = json.volunteers[j].phone;
+                                     email = json.volunteers[j].email;
+                                     var collapsible= $('<div data-role="collapsible" data-iconpos="right" id="col'+j+'"></div>');
+                                     collapsible.append('<h3>'+userName+'</h3>');
+                                     collapsible.append('<h4>ת.ז: '+id+'</h4>');
+                                     collapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+                                     collapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+                                     collapsible.append('<h4>טלפון: '+phone+'</h4>');
+                                     collapsible.append('<h4>אימייל: '+email+'</h4>');
+                                     collapsibleSet.append(collapsible);
+                                 }
+                             }
+							collapsibleSet.trigger('create');
+						 });
+					 </script>
+	    </ul>
+		</div>
+
+		<div data-role="footer" data-position = "fixed">
+			<p align="left">
+			<a href="#manager">חזרה לדף מנהלים</a>
+				<a href="#mainPage">יציאה</a> 
+				Good Neighbor&copy; 
+			</p>
+		</div>
+	</div>
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" id="allMaps">
+		<div data-role="header">
+			<label align ="center">רשימת המפות:</label>
+		</div>
+
+		<div data-role="main" class="ui-content">
+		<form class="ui-filterable">
+     	 	<input id="myFilter" data-type="search" >
+	    </form>
+		<fieldset>
+	    <ul data-role="collapsibleset" id ="allMapsColl" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
+	     			 <script>
+						$(document).on('pageinit', '#allMaps', function () 
+						 {
+							var result = moveTojava.allMapsInit();
+                            // alert(result);
+							 
+							var json = JSON.parse(result);
+							var collapsibleSet=$("#allMapsColl");
+                             var innerCollapsibleSet;
+                             var innerCollapsible;
+                             var firstName;
+                             var lastName;
+                             var phoneNumber;
+                             var city;
+                             var street;
+                             var streetNumber;
+                             var houseNumber;
+                             var comments;
+                             if(json.mapsLength == 0)
+                             {
+
+                             }
+                             else if(json.mapsLength == 1)
+                             {
+                                     var mapName = json.maps.mapName;
+                                     var collapsible= $('<div data-role="collapsible" data-iconpos="right" id="col0"></div>');
+                                     collapsible.append('<h4>'+mapName+'</h4>');
+                                     if(json.maps.isSavedToVolunteer == true)
+                                     {
+                                         collapsible.append('<h4>שמור למתנדב: '+json.maps.volunteer.firstName+' '+json.maps.volunteer.lastName+'</h4>');
+                                     }
+                                     else
+                                     {
+                                         collapsible.append('<h4>המפה אינה שמורה לאף מתנדב</h4>');
+                                     }
+                                     if(json.maps.familiesLength == 1)
+                                     {
+                                         firstName = json.maps.families.firstName;
+                                         lastName = json.maps.families.lastName;
+                                         phoneNumber  = json.maps.families.phoneNumber;
+                                         city  = json.maps.families.city;
+                                         street  = json.maps.families.street;
+                                         streetNumber = json.maps.families.streetNumber;
+                                         houseNumber  = json.maps.families.houseNumber;
+                                         comments = json.maps.families.comments;
+
+                                         innerCollapsibleSet=$('<div data-role="collapsible-set">');
+                                         innerCollapsible=$('<div data-role="collapsible" data-iconpos="right"></div>');
+                                         innerCollapsible.append('<h3>משפחה מספר '+1+'</h3>');
+                                         innerCollapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+                                         innerCollapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+                                         innerCollapsible.append('<h4>טלפון: '+phoneNumber+'</h4>');
+                                         innerCollapsible.append('<h4>עיר: '+city+'</h4>');
+                                         innerCollapsible.append('<h4>רחוב: '+street+'</h4>');
+                                         innerCollapsible.append('<h4>מספר בית: '+streetNumber+'</h4>');
+                                         innerCollapsible.append('<h4>מספר דירה: '+houseNumber+'</h4>');
+                                         innerCollapsible.append('<h4>הערות: '+comments+'</h4>');
+                                         innerCollapsibleSet.append(innerCollapsible);
+                                         collapsible.append(innerCollapsibleSet);
+                                     }
+                                     else
+                                     {
+                                         familyLength = json.maps.families.length;
+                                         for(var k=0; k<familyLength; k++) 
+										 {
+                                             firstName = json.maps.families[k].firstName;
+                                             lastName = json.maps.families[k].lastName;
+                                             phoneNumber  = json.maps.families[k].phoneNumber;
+                                             city  = json.maps.families[k].city;
+                                             street  = json.maps.families[k].street;
+                                             streetNumber = json.maps.families[k].streetNumber;
+                                             houseNumber  = json.maps.families[k].houseNumber;
+                                             comments = json.maps.families.comments;
+                                             innerCollapsibleSet=$('<div data-role="collapsible-set">');
+                                             innerCollapsible=$('<div data-role="collapsible" data-iconpos="right"></div>');
+                                             innerCollapsible.append('<h3>משפחה מספר '+(k+1)+'</h3>');
+                                             innerCollapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+											 innerCollapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+											 innerCollapsible.append('<h4>טלפון: '+phoneNumber+'</h4>');
+											 innerCollapsible.append('<h4>עיר: '+city+'</h4>');
+											 innerCollapsible.append('<h4>רחוב: '+street+'</h4>');
+											 innerCollapsible.append('<h4>מספר בית: '+streetNumber+'</h4>');
+											 innerCollapsible.append('<h4>מספר דירה: '+houseNumber+'</h4>');
+											 innerCollapsible.append('<h4>הערות: '+comments+'</h4>');
+                                             innerCollapsibleSet.append(innerCollapsible);
+                                             collapsible.append(innerCollapsibleSet);
+                                         }
+                                     }
+									 collapsible.append('<a data-role="button" data-inline="true" href="#confirmReleaseMap" name="'+mapName+'" id="releaseMap">שחרר מפה ממתנדב</a>');
+									 collapsible.append('<a data-role="button" data-inline="true" href="#confirmDelMap" name="'+mapName+'" id="delMap">מחק מפה</a>');
+                                     collapsibleSet.append(collapsible);
+                             }
+                             else 
+							 {
+                                 var length = json.maps.length;
+                                 for (var i = 0; i < length; i++)
+                                 {
+									 var mapName = json.maps[i].mapName;
+									 var collapsible = $('<div data-role="collapsible" data-iconpos="right" id="col' + i + '"></div>');
+									 collapsible.append('<h4>' + mapName + '</h4>');
+									 if(json.maps[i].isSavedToVolunteer == true)
+									 {
+										 collapsible.append('<h4>שמור למתנדב: '+json.maps[i].volunteer.firstName+' '+json.maps[i].volunteer.lastName+'</h4>');
+									 }
+									 else
+									 {
+										 collapsible.append('<h4>המפה אינה שמורה לאף מתנדב</h4>');
+									 }
+									 if (json.maps[i].familiesLength == 1)
+									 {
+										 firstName = json.maps[i].families.firstName;
+										 lastName = json.maps[i].families.lastName;
+										 var phoneNumber = json.maps[i].families.phoneNumber;
+										 var city = json.maps[i].families.city;
+										 var street = json.maps[i].families.street;
+										 var streetNumber = json.maps[i].families.streetNumber;
+										 var houseNumber = json.maps[i].families.houseNumber;
+										 var comments = json.maps[i].families.comments;
+										 innerCollapsibleSet = $('<div data-role="collapsible-set">');
+										 innerCollapsible = $('<div data-role="collapsible" data-iconpos="right"></div>');
+										 innerCollapsible.append('<h3>משפחה מספר ' + 1 + '</h3>');
+										 innerCollapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+                                         innerCollapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+                                         innerCollapsible.append('<h4>טלפון: '+phoneNumber+'</h4>');
+                                         innerCollapsible.append('<h4>עיר: '+city+'</h4>');
+                                         innerCollapsible.append('<h4>רחוב: '+street+'</h4>');
+                                         innerCollapsible.append('<h4>מספר בית: '+streetNumber+'</h4>');
+                                         innerCollapsible.append('<h4>מספר דירה: '+houseNumber+'</h4>');
+                                         innerCollapsible.append('<h4>הערות: '+comments+'</h4>');
+										 innerCollapsibleSet.append(innerCollapsible);
+										 collapsible.append(innerCollapsibleSet);
+									}
+									else 
+									{
+										var familyLength;
+
+										familyLength = json.maps[i].families.length;
+
+										 for (var k = 0; k < familyLength; k++) 
+										 {
+											 firstName = json.maps[i].families[k].firstName;
+											 lastName = json.maps[i].families[k].lastName;
+											
+											 var phoneNumber = json.maps[i].families[k].phoneNumber;
+											 var city = json.maps[i].families[k].city;
+											 var street = json.maps[i].families[k].street;
+											 var streetNumber = json.maps[i].families[k].streetNumber;
+											 var houseNumber = json.maps[i].families[k].houseNumber;
+											 var comments = json.maps[i].families[k].comments;
+											 innerCollapsibleSet = $('<div data-role="collapsible-set">');
+											 innerCollapsible = $('<div data-role="collapsible" data-iconpos="right"></div>');
+											 innerCollapsible.append('<h3>משפחה מספר ' + (k + 1) + '</h3>');
+											 innerCollapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+											 innerCollapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+											 innerCollapsible.append('<h4>טלפון: '+phoneNumber+'</h4>');
+											 innerCollapsible.append('<h4>עיר: '+city+'</h4>');
+											 innerCollapsible.append('<h4>רחוב: '+street+'</h4>');
+											 innerCollapsible.append('<h4>מספר בית: '+streetNumber+'</h4>');
+											 innerCollapsible.append('<h4>מספר דירה: '+houseNumber+'</h4>');
+											 innerCollapsible.append('<h4>הערות: '+comments+'</h4>');
+											 innerCollapsibleSet.append(innerCollapsible);
+											 collapsible.append(innerCollapsibleSet);
+										 }
+									}
+									collapsible.append('<a data-role="button" data-inline="true" href="#confirmReleaseMap" name="'+mapName+'" id="releaseMap">שחרר מפה ממתנדב</a>');
+									collapsible.append('<a data-role="button" data-inline="true" href="#confirmDelMap" name="'+mapName+'" id="delMap">מחק מפה</a>');
+									collapsibleSet.append(collapsible);
+								}
+                             }
+							collapsibleSet.trigger('create');
+							$("#releaseMap").on("click",function() {
+								releaseMap(this.name);
+							});
+							$("#delMap").on("click",function() {
+								deleteMap(this.name);
+							});
+						 });
+					 </script>
+	    </ul>
+		</fieldset>
+		</div>
+
+		<div data-role="footer" data-position = "fixed">
+			<p align="left">
+			<a href="#manager">חזרה לדף מנהלים</a>
+				<a href="#mainPage">יציאה</a> 
+				Good Neighbor&copy;  
+			</p>
+		</div>
+	</div>
+	<!-- //////////////////////////////////////////////////////  -->
+	<div data-role="page" id="allFamilies">
+		<div data-role="header">
+			<label align ="center">רשימת המשפחות</label>
+		</div>
+
+		<div data-role="main" class="ui-content">
+		
+	    </ul><form class="ui-filterable">
+     	 	<input id="myFilter" data-type="search" >
+	    </form>
+	    <ul data-role="collapsibleset" id ="allFamiliesColl"data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
+	     			 <script>
+							
+						$(document).on('pageinit', '#allFamilies', function () 
+						 {
+							var result = moveTojava.allFamiliesInit();
+							//alert(result);
+							//var result = '{"families":[{"firstName":"oren","lastName":"lasko"}]}';
+							var collapsibleSet=$("#allFamiliesColl");
+							var mapRelatedName;
+							var firstName;	
+							var lastName;
+							var phoneNumber;
+							var city;
+							var street;
+							var streetNumber;
+							var houseNumber;
+							var comments;
+							var json = JSON.parse(result);	
+							var collapsibleSet=$("#allFamiliesColl");
+							if(json.familiesLength == 0)
+							{
+							}
+							else if(json.familiesLength == 1)
+							{
+								mapRelatedName = json.families.mapRelatedName;
+								firstName = json.families.firstName;
+								lastName = json.families.lastName;
+								phoneNumber = json.families.phoneNumber;
+								city = json.families.city;
+								street = json.families.street;
+								streetNumber = json.families.streetNumber;
+								houseNumber = json.families.houseNumber;
+								comments = json.families.comments;
+								var collapsible= $('<div data-role="collapsible" data-iconpos="right" id="col0"></div>');
+								collapsible.append('<h3>משפחה מספר '+1+'</h3>');
+								collapsible.append('<h4>משויך למפה: '+mapRelatedName+'</h4>');
+								collapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+								collapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+								collapsible.append('<h4>טלפון: '+phoneNumber+'</h4>');
+								collapsible.append('<h4>עיר: '+city+'</h4>');
+								collapsible.append('<h4>רחוב: '+street+'</h4>');
+								collapsible.append('<h4>מספר בית: '+streetNumber+'</h4>');
+								collapsible.append('<h4>מספר דירה: '+houseNumber+'</h4>');
+								collapsible.append('<h4>הערות: '+comments+'</h4>');
+								collapsible.append('<a data-role="button" data-inline="true" href="#editFamily" name="'+firstName+lastName+'" id="editFamily">ערוך משפחה</a>');
+								collapsibleSet.append(collapsible);
+							}
+							else
+							{
+								var familyLength = json.families.length;
+								for(var j =0;j<familyLength;j++)
+								{
+									mapRelatedName = json.families[j].mapRelatedName;
+									firstName = json.families[j].firstName;
+									lastName = json.families[j].lastName;
+									phoneNumber = json.families[j].phoneNumber;
+									city = json.families[j].city;
+									street = json.families[j].street;
+									streetNumber = json.families[j].streetNumber;
+									houseNumber = json.families[j].houseNumber;
+									comments = json.families[j].comments;
+									var collapsible= $('<div data-role="collapsible" data-iconpos="right" id="col'+j+'"></div>');
+									collapsible.append('<h3>משפחה מספר '+(j+1)+'</h3>');
+									collapsible.append('<h4>משויך למפה: '+mapRelatedName+'</h4>');
+									collapsible.append('<h4>שם פרטי: '+firstName+'</h4>');
+									collapsible.append('<h4>שם משפחה: '+lastName+'</h4>');
+									collapsible.append('<h4>טלפון: '+phoneNumber+'</h4>');
+									collapsible.append('<h4>עיר: '+city+'</h4>');
+									collapsible.append('<h4>רחוב: '+street+'</h4>');
+									collapsible.append('<h4>מספר בית: '+streetNumber+'</h4>');
+									collapsible.append('<h4>מספר דירה: '+houseNumber+'</h4>');
+									collapsible.append('<h4>הערות: '+comments+'</h4>');
+									collapsible.append('<a data-role="button" data-inline="true" href="#editFamily" name="'+firstName+lastName+'" id="editFamily">ערוך משפחה</a>');
+									collapsibleSet.append(collapsible);
+								}
+							}
+							collapsibleSet.trigger('create');
+						 });
+					 </script>
+	    </ul>
+		</div>
+
+		<div data-role="footer" data-position = "fixed">
+			<p align="left">
+			<a href="#manager">חזרה לדף מנהלים</a>
+				<a href="#mainPage">יציאה</a> 
+				Good Neighbor&copy; 
+			</p>
+		</div>
+	</div>
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" id="addNewMaps">
+		<div data-role="header">
+			<label align ="center">פתיחת מפה חדשה</label>
+		</div>
+		<div data-role="main" class="ui-content" align = "center">
+		<label>הכנסת מפות חדשות נעשית בשלבים - קודם כל מכניסים את המשפחות</label>
+			<label>ולאחר מכן מצוותים את המשפחות למפות</label>
+			<label>אנא הכנס את כל המשפחות ולאחר מכן לחץ על המשך</label>
+		<form>
+			<fieldset>
+				<p>
+				<input type="checkbox" class="checkall" id="checkBtn2">סמן הכל
+				</p>
+				<script>
+						$('#checkBtn2').click(function() {			
+							$(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
+						});
+				</script>
+				
+					<div data-role="collapsible-set" id="newMapsColl"> 
+					</div>
+					<script>
+						$(document).on('pageinit', '#addNewMaps', function () 
+						 {
+							//var result = moveTojava.allFamiliesInit();
+							var result = '{"families":[{"firstName":"oren","lastName":"lasko"},{"firstName":"paz","lastName":"haimovich"},{"firstName":"paz","lastName":"haimovich"}]}';
+							var json = JSON.parse(result);	
+							var collapsibleSet=$("#newMapsColl");
+							var familyLength = json.families.length;
+							for(var j =0;j<familyLength;j++)
+							{
+								
+								var firstName = json.families[j].firstName;
+								var lastName = json.families[j].lastName;
+								//var phoneNumber = json.families[j].phoneNumber;
+								//var city = json.families[j].city;
+								//var street = json.families[j].street;
+								//var streetNumber = json.families[j].streetNumber;
+								//var houseNumber = json.families[j].houseNumber;
+								//var comments = json.families[j].comments;
+								var check = $('<input type="checkbox" name="'+firstName+'+'+lastName+'" id="checkA'+j+'">');
+								var collapsible= $('<div data-role="collapsible" data-iconpos="right" id="col'+j+'"></div>');
+								collapsible.append('<h3>משפחה מספר '+(j+1)+'</h3>');
+								collapsible.append('<h4>'+firstName+'</h4>');
+								collapsible.append('<h4>'+lastName+'</h4>');
+								//collapsible.append('<h4>'+phoneNumber+'</h4>');
+								//collapsible.append('<h4>'+city+'</h4>');
+								//collapsible.append('<h4>'+street+'</h4>');
+								//collapsible.append('<h4>'+streetNumber+'</h4>');
+								//collapsible.append('<h4>'+houseNumber+'</h4>');
+								//collapsible.append('<h4>'+comments+'</h4>');
+								
+								collapsibleSet.append(check);
+								collapsibleSet.append(collapsible);
+							}
+							collapsibleSet.trigger('create');
+							$("#teamFamiliesToMap").on("click",function() {
+								teamFamiliesToMap(familyLength);
+							});
+		
+						 });
+					 </script>
+					</fieldset>
+					
+			</form>
+			<p>
+				<a href="#addNewFamily" data-rel="dialog" data-transition="slidedown" data-role="button" data-inline="true">הוסף משפחה</a><br>
+				<a href="#addNewMap" data-role = "button" data-inline = "true" id="teamFamiliesToMap">צוות למפות</a>
+			</p>
+		</div>
+
+		<div data-role="footer" data-position = "fixed">
+			<p align="left">
+			<a href="#manager">חזרה לדף מנהלים</a>
+				<a href="#mainPage">יציאה</a> 
+				Good Neighbor&copy; 
+			</p>
+		</div>
+	</div>
+	<!-- //////////////////////////////////////////////////////-->
+	<div data-role="page" id="addNewFamily" data-close-btn="right">
+		<div data-role="header">
+			<label align ="center">הוספת משפחה חדשה</label>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
+			<form name="newFamily" onsubmit="return addNewFamily()">
+				<label for="firstname">שם פרטי</label> 
+				<input type="text" name="firstname" id="firstname"> 
+				<label for="lastname">שם משפחה</label> 
+				<input type="text" name="lastname" id="lastname"> 
+				<label for="phonenumber">טלפון סלולרי</label> 
+				<input type="tel" name="phonenumber" id="phonenumber">
+				<label for="firstname">עיר</label> 
+				<input type="text" name="cityName" id="firstname">
+				<label for="firstname">רחוב</label> 
+				<input type="text" name="streetName" id="firstname">
+				<label for="firstname">מספר בית</label> 
+				<input type="text" name="houseNum" id="firstname">
+				<label for="firstname">מספר דירה</label> 
+				<input type="text" name="appartNum" id="firstname">
+				<label for="firstname">הערות</label> 
+				<input type="text" name="comments" id="firstname">
+				<input type="submit" data-inline="true" value="הוסף משפחה">
+			</form>
+		</div>
+
+		<!-- /content -->
+		<div data-role="footer" data-position="fixed">
+			<p align="left">
+				Good Neighbor&copy;  
+			</p>
+		</div>
+		<!-- /footer -->
+	</div>
+<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" id="addNewMap">
+		<div data-role="header">
+			<label align ="center">ציוות משפחות למפות</label>
+		</div>
+		<div data-role="main" class="ui-content" align = "center">
+		<script>
+				$("#addNewMap").on("click",function() {
+							//test();
+					});
+		</script>
+			<form name="newMap" data-ajax="false">
+				<label for="areaName">שם האיזור</label> 
+				<input type="text" name="areaName" id="areaName">
+				<a href="#confirmNewMap" id="addNewMap" data-rel="dialog" data-transition="slidedown" data-role = "button" data-inline = "true">אישור</a>
+			</form>
+		</div>
+
+		<div data-role="footer" data-position = "fixed">
+			<p align="left">
+			<a href="#manager">חזרה לדף מנהלים</a>
+				<a href="#mainPage">יציאה</a> 
+				Good Neighbor&copy; 
+			</p>
+		</div>
+	</div>
+	
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" id="confirmNewMap" data-close-btn="none">
+	<div data-role="header">
+		</div>
+		<div data-role="main" class="ui-content" align="center">
+			<label>המפה אושרה בהצלחה</label>
+			<a href = "#addNewMaps" data-role = "button" data-inline = "true">אישור</a>
+		</div>
+
+		<div data-role="footer" data-position = "fixed">
+		<p align="left">
+				Good Neighbor&copy; 
+			</p>
+		</div>
+	</div>
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" id="confirmDelMap">
+		<div data-role="main" class="ui-content">
+			<label>האם אתה בטוח שאתה רוצה למחוק את המפה?</label>
+			<a href="#allMaps" data-role = "button" data-inline = "true">כן</a>
+			<a href="#allMaps" data-role = "button" data-inline = "true">לא</a>
+		</div>
+
+		<div data-role="footer" data-position = "fixed">
+		</div>
+	</div>
+	<!-- ////////////////////////////////////////////////////// -->
+	<div data-role="page" data-close-btn="right" id="editFamily">
+		<div data-role="header">
+			<label align="center">עריכת משפחה</label>
+		</div>
+		<div data-role="main" class="ui-content">
+			<label>עריכת משפחה</label>
+			<form name="editFamily" onsubmit="return editFamily()">
+				<label for="firstname">שם פרטי</label> 
+				<input id="firstname" type="text">
+				<label for="lastname">שם משפחה</label> 
+				<input type="text" name="lastname" id="lastname"> 
+				<label for="phonenumber">טלפון סלולרי</label> 
+				<input type="tel" name="phonenumber" id="phonenumber"> 
+				<label for="cityName">עיר</label> 
+				<input type="text" name="cityName" id="firstname">
+				<label for="streetName">רחוב</label> 
+				<input type="text" name="streetName" id="firstname">
+				<label for="houseNum">מספר בית</label> 
+				<input type="text" name="houseNum" id="firstname">
+				<label for="appartNum">מספר דירה</label> 
+				<input type="text" name="appartNum" id="firstname">
+				<label for="comments">הערות</label> 
+				<input type="text" name="comments" id="firstname">
+				
+				<input type="submit" data-inline="true" value="ערוך">
+				
+			</form>
+		</div>
+		<div data-role="footer" data-position = "fixed">
+		<p align="left">
+				Good Neighbor&copy; 
+			</p>
+		</div>
+	</div>
+	<!-- ////////////////////////////////////////////////////// -->
+</body>
+
+</html>
